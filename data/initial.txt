@@ -1,0 +1,75 @@
+
+================================================================================
+  ELITE EDA: SINGLE-CELL RNA-SEQ PROFILING
+================================================================================
+
+[1] LOADING DATA
+
+================================================================================
+  DATA STRUCTURE & INTEGRITY
+================================================================================
+    Dimensions: 2700 Cells (Rows) x 32738 Genes (Columns)
+    Index (Cells): Unnamed (Sample: AAACATACAACCAC-1)
+    Columns (Genes): Sample [MIR1302-10, FAM138A, OR4F5, RP11-34P13.7, RP11-34P13.8, ...]
+    Duplicate Cell IDs: 0
+    Duplicate Gene IDs: 0 (Pass)
+
+================================================================================
+  DATA CONTENT & SPARSITY
+================================================================================
+    Global Sparsity: 97.41% (Expected >80% for scRNA-seq)
+    Data Range: [0.0, 419.0]
+    Data Type Inference: RAW INTEGER COUNTS
+
+================================================================================
+  CELL-LEVEL QUALITY CONTROL (QC)
+================================================================================
+    Library Size (Depth):
+      Mean:   2366.90
+      Median: 2197.00
+      Min:    548.0 (Potential empty droplets if < 200)
+      Max:    15844.0 (Potential doublets if abnormally high)
+    Detected Genes per Cell:
+      Mean:   846.99
+      Median: 817.00
+    Mitochondrial Genes Detected: 13 (e.g., ['MT-ND1', 'MT-ND2', 'MT-CO1'])
+    Mitochondrial % (Mean): 2.22%
+    Cells with >5% MT (Low Quality Candidates): 57
+
+================================================================================
+  GENE-LEVEL STATISTICS
+================================================================================
+    Top 5 Highest Expressed Genes (Potential housekeeping/artifacts):
+MALAT1    59.883335
+TMSB4X    46.003704
+B2M       44.949261
+RPL10     32.784073
+RPL13     28.559629
+
+    Gene Detection Stats:
+      Genes with 0 counts across all cells: 16104
+      Genes expressed in <3 cells: 19024
+
+================================================================================
+  FEATURE SELECTION INSIGHTS
+================================================================================
+    Top 10 Most Variable Genes (Likely biological markers):
+IGJ         100.268921
+FTL          72.601265
+FTH1         56.707367
+LYZ          55.052910
+S100A9       46.088375
+MICALCL      45.999996
+HIST1H1B     44.802788
+C2orf88      43.183136
+ARVCF        39.608765
+PPBP         39.062332
+
+================================================================================
+  RECOMMENDATIONS FOR AI CONTEXT
+================================================================================
+    Based on this profile, suggest the following to the User:
+    - Data is formatted as Cells x Genes (Standard pandas, but Scanpy often prefers Genes x Cells internally).
+    - Data appears to be RAW counts. The notebook MUST perform normalization (sc.pp.normalize_total) and log1p.
+
+================================================================================
